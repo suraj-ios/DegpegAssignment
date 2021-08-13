@@ -31,6 +31,8 @@ class SignupViewController: UIViewController {
         
     }
     
+    //Summery//
+    //Login onClick Button action to open Login Screen//
     @objc func openLoginScreenFunc(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let destination = storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
@@ -38,6 +40,8 @@ class SignupViewController: UIViewController {
         self.present(destination, animated: false, completion: nil)
     }
     
+    //Summery//
+    //Signup onClick Button action to create user account in Firebase server//
     @IBAction func registerAccountButtonFunc(_ sender: Any) {
         Auth.auth().createUser(withEmail: self.emailTextField.text!, password: self.passwordTextField.text!) { authResult, error in
           if let error = error as? NSError {
@@ -73,6 +77,8 @@ class SignupViewController: UIViewController {
         }
     }
     
+    //Summery//
+    //Login onClick Button action to open Login Screen//
     func openLoginScreen(){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let destination = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController

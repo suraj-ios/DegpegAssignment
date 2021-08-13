@@ -56,6 +56,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return false
     }
     
+    
+    //Summery//
+    //Player page function to open Player page Screen//
+    //Video player screen//
     func openPlayerPage(_ url:String){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let destination = self.storyboard?.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController

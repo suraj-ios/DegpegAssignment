@@ -66,6 +66,11 @@ class PlayerViewController: UIViewController {
         
     }
     
+    
+    //Summery//
+    //Player screen handle//
+    //Portrait and Landscape mode//
+    //Video player screen//
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         if (UIDevice.current.orientation.isLandscape) {
             playerLayer?.frame = CGRect(x: -48, y: 0, width: size.width, height: size.height)
