@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
     }
     
     // tell the collection view how many cells to make
@@ -65,6 +66,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let destination = self.storyboard?.instantiateViewController(identifier: "PlayerViewController") as! PlayerViewController
         destination.modalPresentationStyle = .fullScreen
         destination.urlM3u8 = URL(string: url)
+        self.present(destination, animated: false, completion: nil)
+    }
+    
+    //Summery//
+    //Logout from The Degpeg Application//
+    //Open Login anf Singup Screen//
+    //Remove userdefaults value from the local database//
+    @IBAction func logoutButtonFunc(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "LoggedIn")
+        defaults.synchronize()
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        destination.modalPresentationStyle = .fullScreen
         self.present(destination, animated: false, completion: nil)
     }
     

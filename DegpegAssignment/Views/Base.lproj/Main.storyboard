@@ -371,7 +371,13 @@
                             <constraint firstItem="sP4-kC-fYF" firstAttribute="leading" secondItem="aGO-M6-IL6" secondAttribute="leading" id="sCa-6t-wVN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="zjG-pC-XOk"/>
+                    <navigationItem key="navigationItem" title="Home" id="zjG-pC-XOk">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ic_logout" id="ibB-Nc-zfO">
+                            <connections>
+                                <action selector="logoutButtonFunc:" destination="kAx-kC-4KL" id="tdf-vv-S0w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="sP4-kC-fYF" id="ejj-nJ-bDp"/>
                     </connections>
@@ -500,6 +506,7 @@
     <resources>
         <image name="ic_backIcon" width="128" height="128"/>
         <image name="ic_launchScreenLogo" width="341" height="341"/>
+        <image name="ic_logout" width="20" height="20"/>
         <image name="ic_playIcon" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
