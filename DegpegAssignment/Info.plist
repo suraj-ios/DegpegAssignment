@@ -50,5 +50,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera</string>
 </dict>
 </plist>

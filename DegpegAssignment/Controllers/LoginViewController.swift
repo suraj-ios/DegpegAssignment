@@ -64,7 +64,7 @@ class LoginViewController: UIViewController {
                 let alert = UIAlertView(title: "Alert", message: "Indicates the email address is malformed.", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
             default:
-                print("Error: \(error.localizedDescription)")
+                // print("Error: \(error.localizedDescription)")
                 let alert = UIAlertView(title: "Alert", message: error.localizedDescription, delegate: self, cancelButtonTitle: "OK")
                 alert.show()
             }

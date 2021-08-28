@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,11 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().isTranslucent = false
         
+        
+        let session = AVAudioSession.sharedInstance()
+        do {
+            if #available(iOS 10.0, *) {
+                try session.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker, .allowBluetooth])
+            } else {
+                session.perform(NSSelectorFromString("setCategory:withOptions:error:"), with: AVAudioSession.Category.playAndRecord, with: [
+                    AVAudioSession.CategoryOptions.allowBluetooth,
+                    AVAudioSession.CategoryOptions.defaultToSpeaker]
+                )
+                try session.setMode(.default)
+            }
+            try session.setActive(true)
+        } catch {
+            print(error)
+        }
+        
         let defaults = UserDefaults.standard.string(forKey: "LoggedIn")
         if defaults == "true"{
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "RTMPPlayerViewController") as! RTMPPlayerViewController
             let navBar = UINavigationController(rootViewController: initialViewController)
             navBar.modalPresentationStyle = .fullScreen
             self.window?.rootViewController = navBar

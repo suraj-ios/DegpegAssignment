@@ -62,7 +62,7 @@ class SignupViewController: UIViewController {
                 let alert = UIAlertView(title: "Alert", message: "The password must be 6 characters long or more.", delegate: self, cancelButtonTitle: "OK")
                 alert.show()
             default:
-                print("Error: \(error.localizedDescription)")
+                // print("Error: \(error.localizedDescription)")
                 let alert = UIAlertView(title: "Alert", message: error.localizedDescription, delegate: self, cancelButtonTitle: "OK")
                 alert.show()
             }

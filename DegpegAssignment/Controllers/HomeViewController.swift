@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 class HomeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -14,10 +15,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     let videoUrlArray = ["https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8","http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8","https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8","http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8","https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8","http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8","https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8","http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8","https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8","http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8"]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+                
+        // Force the device in portrait mode when the view controller gets loaded
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Force the device in portrait mode when the view controller gets loaded
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
     }
     
     // tell the collection view how many cells to make
@@ -56,7 +66,10 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override var shouldAutorotate: Bool {
         return false
     }
-    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        // Force the device in portrait mode when the view controller gets loaded
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+    }
     
     //Summery//
     //Player page function to open Player page Screen//
